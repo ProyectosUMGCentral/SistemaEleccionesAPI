@@ -14,11 +14,11 @@ namespace Elecciones.Controllers
 
         private BVotaciones bVotaciones = new BVotaciones();
 
-        [Route("")]
-        [HttpGet]
-        public string GenerateBitacora()
+        [Route("{id_eleccion:regex(^\\d$)}")]
+        [HttpPost]
+        public string IniciarEleccion(int id_eleccion)
         {
-            return bVotaciones.BLLGetResultado();
+            return bVotaciones.InicioElecciones(id_eleccion);
         }
 
     }

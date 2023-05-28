@@ -27,17 +27,17 @@ namespace Elecciones.DAL
             this.spName = spName;
         }
 
-        public DataTable testconsulta()
+        public DataTable InicioEleccion(int id)
         {
             DataTable RespuestaAutorizar = new DataTable();
             using (OleDbCommand command = new OleDbCommand())
             {
+
                 command.Connection = this.Conexion;
-                command.CommandType = CommandType.Text;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = $"{this.dbName}..{this.spName}";
 
-                string query = $"SELECT * FROM el_municipio";
-
-                command.CommandText = query;
+                command.Parameters.AddWithValue("@i_num_identificacion", id);
 
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
                 {

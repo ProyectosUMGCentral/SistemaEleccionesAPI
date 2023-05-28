@@ -13,17 +13,11 @@ namespace Elecciones.BLL
 
         private DVotaciones dVotaciones = new DVotaciones();
 
-        public string BLLGetResultado()
+        public string InicioElecciones(int id_eleccion)
         {
-            DataTable resultadoEjecucionSP = dVotaciones.testResultadoDB();
+            DataTable resultadoEjecucionSP = dVotaciones.InicioEleccion(id_eleccion);
 
-            string res = "";
-
-            foreach (DataRow row in resultadoEjecucionSP.Rows)
-            {
-                res += " " + row["em_id"].ToString() + " " + row["em_nombre"].ToString();
-            }
-            return res;
+            return resultadoEjecucionSP != null ? "INICIO DE ELECCIONES SATISFACTORIA" : throw new Exception("Ocurrió un error al iniciar elecciones en método BVotaciones.InicioElecciones(int)");
         }
 
     }

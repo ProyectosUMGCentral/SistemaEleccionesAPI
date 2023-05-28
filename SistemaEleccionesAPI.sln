@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elecciones.DAL", "Eleccione
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elecciones.BLL", "Elecciones.BLL\Elecciones.BLL.csproj", "{9255B0CB-E9F9-4148-A97A-0CBE5C9C6750}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elecciones.BEL", "Elecciones.BEL\Elecciones.BEL.csproj", "{E607F6DB-C8FE-45A1-8F50-4D7807E39F16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9255B0CB-E9F9-4148-A97A-0CBE5C9C6750}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9255B0CB-E9F9-4148-A97A-0CBE5C9C6750}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9255B0CB-E9F9-4148-A97A-0CBE5C9C6750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E607F6DB-C8FE-45A1-8F50-4D7807E39F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E607F6DB-C8FE-45A1-8F50-4D7807E39F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E607F6DB-C8FE-45A1-8F50-4D7807E39F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E607F6DB-C8FE-45A1-8F50-4D7807E39F16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
