@@ -1,5 +1,4 @@
-﻿using Elecciones.DTOs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -9,43 +8,18 @@ using System.Threading.Tasks;
 
 namespace Elecciones.DAL
 {
-    public class DVotaciones
+    public class DConteo
     {
 
         private DConexionDB _dConexionDB = DConexionDB.GetInstance();
 
-        public DataTable InicioEleccion(int id_eleccion)
+        public DataTable CantidadVotos(int centro_votacion)
         {
             try
             {
                 _dConexionDB.OpenConexion();
-                DVotosCommandExecutor Executor = new DVotosCommandExecutor(_dConexionDB.DBConexion, "Sistema_Electoral", "sp_inicio_eleccion");
-                DataTable resultadoEjecucion = Executor.InicioEleccion(id_eleccion);
-                return resultadoEjecucion;
-            }
-            catch (Exception ex)
-            {
-                if(ex is OleDbException)
-                {
-                    DShowOleDbException dShowOleDbException = new DShowOleDbException();
-                    string errorMessage = dShowOleDbException.GetOleDbException((OleDbException)ex);
-                    throw new Exception(errorMessage);
-                }
-                throw new Exception("DALException:", ex);
-            }
-            finally
-            {
-                _dConexionDB.CloseConexion();
-            }
-        }
-
-        public DataTable EmitirVoto(EmisionVotoDTO emisionVoto)
-        {
-            try
-            {
-                _dConexionDB.OpenConexion();
-                DVotosCommandExecutor Executor = new DVotosCommandExecutor(_dConexionDB.DBConexion, "Sistema_Electoral", "sp_emision_voto");
-                DataTable resultadoEjecucion = Executor.EmitirVoto(emisionVoto);
+                DConteoCommandExecutor Executor = new DConteoCommandExecutor(_dConexionDB.DBConexion, "Sistema_Electoral", "sp_cons_info");
+                DataTable resultadoEjecucion = Executor.ConteoVotos(centro_votacion);
                 return resultadoEjecucion;
             }
             catch (Exception ex)
@@ -64,13 +38,13 @@ namespace Elecciones.DAL
             }
         }
 
-        public DataTable FinalizaEleccion(int id_eleccion)
+        public DataTable PorcentajeCV(int centro_votacion)
         {
             try
             {
                 _dConexionDB.OpenConexion();
-                DVotosCommandExecutor Executor = new DVotosCommandExecutor(_dConexionDB.DBConexion, "Sistema_Electoral", "sp_finaliza_eleccion");
-                DataTable resultadoEjecucion = Executor.FinalizaEleccion(id_eleccion);
+                DConteoCommandExecutor Executor = new DConteoCommandExecutor(_dConexionDB.DBConexion, "Sistema_Electoral", "sp_cons_info");
+                DataTable resultadoEjecucion = Executor.PorcentajeCentroVotacion(centro_votacion);
                 return resultadoEjecucion;
             }
             catch (Exception ex)
@@ -88,7 +62,6 @@ namespace Elecciones.DAL
                 _dConexionDB.CloseConexion();
             }
         }
-
 
     }
 }

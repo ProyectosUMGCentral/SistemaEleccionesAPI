@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DCommandExecutor.cs" />
+    <Compile Include="DConteoCommandExecutor.cs" />
+    <Compile Include="DVotosCommandExecutor.cs" />
     <Compile Include="DConexionDB.cs" />
+    <Compile Include="DConteo.cs" />
     <Compile Include="DShowOleDbException.cs" />
     <Compile Include="DVotaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

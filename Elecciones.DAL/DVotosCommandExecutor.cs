@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace Elecciones.DAL
 {
-    public class DCommandExecutor
+    public class DVotosCommandExecutor
     {
 
         private OleDbConnection Conexion;
         private string dbName;
         private string spName;
 
-        public DCommandExecutor(OleDbConnection Conexion)
+        public DVotosCommandExecutor(OleDbConnection Conexion)
         {
             this.Conexion = Conexion;
         }
 
-        public DCommandExecutor(OleDbConnection Conexion, string dbName, string spName)
+        public DVotosCommandExecutor(OleDbConnection Conexion, string dbName, string spName)
         {
             this.Conexion = Conexion;
             this.dbName = dbName;
