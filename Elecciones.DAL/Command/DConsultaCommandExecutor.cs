@@ -87,5 +87,27 @@ namespace Elecciones.DAL.Command
             }
             return RespuestaAutorizar;
         }
+
+        public DataTable VerificaVotoCiudadano(string identificacion, int eleccion)
+        {
+            DataTable Response = new DataTable();
+            using (OleDbCommand command = new OleDbCommand())
+            {
+
+                command.Connection = this.Conexion;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = $"{this.dbName}..{this.spName}";
+
+                command.Parameters.AddWithValue("@i_num_identificacion", identificacion);
+                command.Parameters.AddWithValue("@i_eleccion", eleccion);
+
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                {
+                    adapter.Fill(Response);
+                }
+            }
+            return Response;
+        }
+
     }
 }

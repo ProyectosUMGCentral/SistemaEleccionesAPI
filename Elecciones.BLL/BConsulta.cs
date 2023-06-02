@@ -84,5 +84,18 @@ namespace Elecciones.BLL
 
             return result;
         }
+
+        public bool VerificaVotoCiudadano(string identificacion, int eleccion)
+        {
+            DataTable resultadoEjecucionSP = DConsultasDB.VerificaVotoCiudadano(identificacion, eleccion);
+
+            DataRow firstRowResult = resultadoEjecucionSP.Rows[0];
+
+            int mapeoResultadoRow = Convert.ToInt32(firstRowResult["RESULTADO"]);
+
+            return mapeoResultadoRow == 1 ? true : false;
+
+        }
+
     }
 }

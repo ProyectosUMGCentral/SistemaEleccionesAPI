@@ -34,5 +34,13 @@ namespace Elecciones.Controllers
         {
             return bConsulta.GetCandidatos(candidatos);
         }
+
+        [Route("verificarvoto")]
+        [HttpGet]
+        public bool VerificarVotoCiudadano(string identificacion, int eleccion)
+        {
+            return bConsulta.VerificaVotoCiudadano(identificacion, eleccion);
+        }
+
     }
 }
