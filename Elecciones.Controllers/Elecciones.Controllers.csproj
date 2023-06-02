@@ -58,9 +58,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Elecciones.BEL\Elecciones.BEL.csproj">
+      <Project>{E607F6DB-C8FE-45A1-8F50-4D7807E39F16}</Project>
+      <Name>Elecciones.BEL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Elecciones.BLL\Elecciones.BLL.csproj">
       <Project>{9255B0CB-E9F9-4148-A97A-0CBE5C9C6750}</Project>
       <Name>Elecciones.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Elecciones.DTOs\Elecciones.DTOs.csproj">
+      <Project>{8FAA9FA7-0EF4-42E9-99F0-0CD33949F6EC}</Project>
+      <Name>Elecciones.DTOs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elecciones.DAL.Command;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -13,7 +14,7 @@ namespace Elecciones.DAL
 
         private DConexionDB _dConexionDB = DConexionDB.GetInstance();
 
-        public DataTable CantidadVotos(int centro_votacion)
+        public DataTable CantidadVotos(int? centro_votacion)
         {
             try
             {
