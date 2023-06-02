@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BConsulta.cs" />
     <Compile Include="BConteo.cs" />
     <Compile Include="BVotaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

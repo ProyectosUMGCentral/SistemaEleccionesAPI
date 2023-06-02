@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultasController.cs" />
     <Compile Include="ConteoController.cs" />
     <Compile Include="VotacionController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

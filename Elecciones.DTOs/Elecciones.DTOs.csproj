@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ciudadanoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultadoConteoVotosDTO.cs" />
     <Compile Include="ResultadoPorcentajeCentroVotacionDTO.cs" />
