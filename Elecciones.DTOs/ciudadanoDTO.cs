@@ -21,6 +21,7 @@ namespace Elecciones.DTOs
         public DateTime ec_fecha_nac { get; set; }
         public string ec_correo_electronico { get; set; }
         public string ec_num_tel { get; set; }
+        public int ee_id { get; set; }
 
     }
 }

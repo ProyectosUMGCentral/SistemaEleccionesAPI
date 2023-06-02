@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Elecciones.DTOs;
 
 namespace Elecciones.DAL.Command
 {
@@ -37,6 +38,47 @@ namespace Elecciones.DAL.Command
                 command.CommandText = $"{this.dbName}..{this.spName}";
 
                 command.Parameters.AddWithValue("@identificacion", identificacion);
+
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                {
+                    adapter.Fill(RespuestaAutorizar);
+                }
+            }
+            return RespuestaAutorizar;
+        }
+        public DataTable consultaUsuario(string email, string passWord)
+        {
+            DataTable RespuestaAutorizar = new DataTable();
+            using (OleDbCommand command = new OleDbCommand())
+            {
+
+                command.Connection = this.Conexion;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = $"{this.dbName}..{this.spName}";
+
+                command.Parameters.AddWithValue("@emial", email);
+                command.Parameters.AddWithValue("@password", passWord);
+
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                {
+                    adapter.Fill(RespuestaAutorizar);
+                }
+            }
+            return RespuestaAutorizar;
+        }
+        public DataTable consultaCandidatos(consultaCandidatosDTO candidato)
+        {
+            DataTable RespuestaAutorizar = new DataTable();
+            using (OleDbCommand command = new OleDbCommand())
+            {
+
+                command.Connection = this.Conexion;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = $"{this.dbName}..{this.spName}";
+
+                command.Parameters.AddWithValue("@CARGO", candidato.cargo);
+                command.Parameters.AddWithValue("@MUNICIPIO", candidato.municipio);
+                command.Parameters.AddWithValue("@DEPARTAMENTO", candidato.departamento);
 
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
                 {

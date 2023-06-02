@@ -19,8 +19,6 @@ namespace Elecciones.BLL
 
             DataRow GetDataFirstRow = resultadoEjecucionSP.Rows[0];
 
-            //Cantidad_Votos = Convert.ToInt32(GetDataFirstRow["Cantidad-Votos"])
-
             return new ciudadanoDTO()
             {
                 ec_id = Convert.ToInt32(GetDataFirstRow["ec_id"]),
@@ -36,7 +34,55 @@ namespace Elecciones.BLL
                 ec_fecha_nac = Convert.ToDateTime(GetDataFirstRow["ec_fecha_nac"]),
                 ec_correo_electronico = Convert.ToString(GetDataFirstRow["ec_correo_electronico"]),
                 ec_num_tel = Convert.ToString(GetDataFirstRow["ec_num_tel"]),
+                ee_id = Convert.ToInt32(GetDataFirstRow["ee_id"])
             };
+        }
+        public usuarioDTO GetUsuario(string email, string passWord)
+        {
+            DataTable resultadoEjecucionSP = DConsultasDB.consultaUsuario(email, passWord);
+            if (resultadoEjecucionSP.Rows.Count != 1) throw new Exception("No se encontro el usuario");
+
+            DataRow GetDataFirstRow = resultadoEjecucionSP.Rows[0];
+
+            return new usuarioDTO()
+            {
+                eu_id = Convert.ToInt32(GetDataFirstRow["eu_id"]),
+                eu_email = Convert.ToString(GetDataFirstRow["eu_email"])
+            };
+        }
+        public List<CandidatosDTO> GetCandidatos(consultaCandidatosDTO candidato)
+        {
+            DataTable resultadoEjecucionSP = DConsultasDB.consultaCandidato(candidato);
+            if (resultadoEjecucionSP.Rows?.Count == 0) throw new Exception("No se encontraron candidatos");
+
+            List<CandidatosDTO> result = new List<CandidatosDTO>();
+
+            foreach (DataRow row in resultadoEjecucionSP.Rows) 
+            {
+                result.Add(new CandidatosDTO()
+                {
+                    eca_id = Convert.ToInt32(row["eca_id"]),
+                    eca_nombre_Cargo = Convert.ToString(row["eca_nombre_Cargo"]),
+                    eca_descripcion = Convert.ToString(row["eca_descripcion"]),
+                    ec_id = Convert.ToInt32(row["ec_id"]),
+                    ec_num_identificacion = Convert.ToString(row["ec_num_identificacion"]),
+                    ec_nombre1 = Convert.ToString(row["ec_nombre1"]),
+                    ec_nombre2 = Convert.ToString(row["ec_nombre2"]),
+                    ec_nombre3 = Convert.ToString(row["ec_nombre3"]),
+                    ec_apellido1 = Convert.ToString(row["ec_apellido1"]),
+                    ec_apellido2 = Convert.ToString(row["ec_apellido2"]),
+                    ec_apellido3 = Convert.ToString(row["ec_apellido3"]),
+                    ec_fecha_nac = Convert.ToDateTime(row["ec_fecha_nac"]),
+                    ec_correo_electronico = Convert.ToString(row["ec_correo_electronico"]),
+                    ec_num_tel = Convert.ToString(row["ec_num_tel"]),
+                    em_id = Convert.ToInt32(row["em_id"]),
+                    em_nombre = Convert.ToString(row["em_nombre"]),
+                    ee_id = Convert.ToInt32(row["ee_id"]),
+                    ee_nombre = Convert.ToString(row["ee_nombre"]),
+                });
+            }
+
+            return result;
         }
     }
 }

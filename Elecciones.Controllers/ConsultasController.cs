@@ -22,6 +22,17 @@ namespace Elecciones.Controllers
         {
             return bConsulta.GetCiudadano(identificacion);
         }
-
+        [Route("usuario")]
+        [HttpGet]
+        public usuarioDTO obtenerUsuario(string email, string passWord)
+        {
+            return bConsulta.GetUsuario(email, passWord);
+        }
+        [Route("candidatos")]
+        [HttpPost]
+        public List<CandidatosDTO> obtenerCandidatos(consultaCandidatosDTO candidatos)
+        {
+            return bConsulta.GetCandidatos(candidatos);
+        }
     }
 }
