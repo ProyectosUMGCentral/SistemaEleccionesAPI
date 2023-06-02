@@ -1,4 +1,5 @@
-﻿using Elecciones.DTOs;
+﻿using Elecciones.BEL;
+using Elecciones.DAL.Command;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,7 +40,7 @@ namespace Elecciones.DAL
             }
         }
 
-        public DataTable EmitirVoto(EmisionVotoDTO emisionVoto)
+        public DataTable EmitirVoto(EEmisionVoto emisionVoto)
         {
             try
             {

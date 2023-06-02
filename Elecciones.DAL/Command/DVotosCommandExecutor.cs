@@ -1,4 +1,4 @@
-﻿using Elecciones.DTOs;
+﻿using Elecciones.BEL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Elecciones.DAL
+namespace Elecciones.DAL.Command
 {
     public class DVotosCommandExecutor
     {
@@ -48,7 +48,7 @@ namespace Elecciones.DAL
             return RespuestaAutorizar;
         }
 
-        public DataTable EmitirVoto(EmisionVotoDTO emisionVoto)
+        public DataTable EmitirVoto(EEmisionVoto emisionVoto)
         {
             DataTable RespuestaAutorizar = new DataTable();
             using (OleDbCommand command = new OleDbCommand())

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Elecciones.DTOs
+namespace Elecciones.BEL
 {
-    public class EmisionVotoDTO
+    public class EEmisionVoto
     {
         public string num_identificacion { get; set; }
         public int centro_votacion { get; set; }

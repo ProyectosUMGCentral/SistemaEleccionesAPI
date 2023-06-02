@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Elecciones.DAL
+namespace Elecciones.DAL.Command
 {
     public class DConteoCommandExecutor
     {
@@ -27,7 +27,7 @@ namespace Elecciones.DAL
             this.spName = spName;
         }
 
-        public DataTable ConteoVotos(int centro_votacion)
+        public DataTable ConteoVotos(int? centro_votacion)
         {
             DataTable RespuestaAutorizar = new DataTable();
             using (OleDbCommand command = new OleDbCommand())
@@ -58,7 +58,7 @@ namespace Elecciones.DAL
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = $"{this.dbName}..{this.spName}";
 
-                command.Parameters.AddWithValue("@i_modo_consulta", "CONTEO-VOTOS");
+                command.Parameters.AddWithValue("@i_modo_consulta", "PORCENTAJE-CV");
                 command.Parameters.AddWithValue("@i_centro_votacion", centro_votacion);
 
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))

@@ -41,13 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BConteo.cs" />
     <Compile Include="BVotaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Elecciones.BEL\Elecciones.BEL.csproj">
+      <Project>{E607F6DB-C8FE-45A1-8F50-4D7807E39F16}</Project>
+      <Name>Elecciones.BEL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Elecciones.DAL\Elecciones.DAL.csproj">
       <Project>{2B41140F-9367-484F-9E57-9CB5B139440A}</Project>
       <Name>Elecciones.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Elecciones.DTOs\Elecciones.DTOs.csproj">
+      <Project>{8FAA9FA7-0EF4-42E9-99F0-0CD33949F6EC}</Project>
+      <Name>Elecciones.DTOs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
