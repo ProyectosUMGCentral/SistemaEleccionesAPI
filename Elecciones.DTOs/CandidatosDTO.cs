@@ -32,5 +32,8 @@ namespace Elecciones.DTOs
 		public string em_nombre {get; set;}
 		public int ee_id {get; set;}
 		public string ee_nombre { get; set; }
+        public int epp_id {get; set;}
+		public string epp_nombre {get; set;}
+		public string epp_abreviatura { get; set;}
     }
 }

@@ -79,6 +79,9 @@ namespace Elecciones.BLL
                     em_nombre = Convert.ToString(row["em_nombre"]),
                     ee_id = Convert.ToInt32(row["ee_id"]),
                     ee_nombre = Convert.ToString(row["ee_nombre"]),
+                    epp_id= Convert.ToInt32(row["epp_id"]),
+                    epp_nombre= Convert.ToString(row["epp_nombre"]),
+                    epp_abreviatura= Convert.ToString(row["epp_abreviatura"]),
                 });
             }
 
