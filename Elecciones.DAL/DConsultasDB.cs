@@ -86,5 +86,31 @@ namespace Elecciones.DAL
                 _dConexionDB.CloseConexion();
             }
         }
+
+        public DataTable VerificaVotoCiudadano(string identificacion, int eleccion)
+        {
+            try
+            {
+                _dConexionDB.OpenConexion();
+                DConsultaCommandExecutor Executor = new DConsultaCommandExecutor(_dConexionDB.DBConexion, "Sistema_Electoral", "sp_verifica_voto_ciudadano");
+                DataTable resultadoEjecucion = Executor.VerificaVotoCiudadano(identificacion, eleccion);
+                return resultadoEjecucion;
+            }
+            catch (Exception ex)
+            {
+                if (ex is OleDbException)
+                {
+                    DShowOleDbException dShowOleDbException = new DShowOleDbException();
+                    string errorMessage = dShowOleDbException.GetOleDbException((OleDbException)ex);
+                    throw new Exception(errorMessage);
+                }
+                throw new Exception("DALException:", ex);
+            }
+            finally
+            {
+                _dConexionDB.CloseConexion();
+            }
+        }
+
     }
 }
